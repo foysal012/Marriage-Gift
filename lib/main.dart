@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:marriage_gift/model/contact_model_info.dart';
-import 'package:marriage_gift/screen/add_new_user_info.dart';
-import 'package:marriage_gift/screen/homepage_screen.dart';
+import 'package:get/get.dart';
 import 'package:hive/hive.dart';
-import 'package:marriage_gift/screen/splash_screen.dart';
-import 'package:marriage_gift/simple_task.dart';
+import 'package:marriage_gift/screen/splash%20screen/splash_screen.dart';
 
 void main() async{
 
@@ -33,7 +31,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
 

@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:marriage_gift/screen/homepage_screen.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -20,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(
         Duration(seconds: 2),
             () {
-          Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => HomePageScreen()), (route) => false);
+          //Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => HomePageScreen()), (route) => false);
             }
     );
     super.initState();
@@ -67,7 +67,22 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
 
             SizedBox(
-              height: height * 0.3,
+              height: height * 0.22,
+            ),
+
+            SpinKitThreeInOut(
+              itemBuilder: (BuildContext context, int index) {
+                return DecoratedBox(
+                  decoration: BoxDecoration(
+                    color: index.isEven ? Color(0xff888887): Color(0xff74D5FD),
+                    shape: BoxShape.circle,
+                  ),
+                );
+              },
+            ),
+
+            SizedBox(
+              height: height * 0.02,
             ),
 
             Text("Design & Developed By",
