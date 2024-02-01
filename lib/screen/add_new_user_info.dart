@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hive/hive.dart';
 import 'package:marriage_gift/model/contact_model_info.dart';
 import 'package:marriage_gift/screen/homepage_screen.dart';
@@ -59,20 +60,30 @@ class _AddNewUserInfoState extends State<AddNewUserInfo> {
                   height: height * 0.05,
                 ),
 
-                Text("Add New User Info"),
+                Row(
+                  children: [
+                    
+                    IconButton(
+                        onPressed: (){
+                          Navigator.of(context).pop();
+                        },
+                        icon: Icon(Icons.arrow_back, color: Colors.black, size: 35,)
+                    ),
 
-                // SizedBox(
-                //   height: height * 0.05,
-                // ),
-                //
-                // WidgetTextFromField(
-                //     slNoController: slNoController,
-                //     slNoFocusNode: slNoFocusNode,
-                //     nameFocusNode: nameFocusNode,
-                //     labelTxt: "SlNo",
-                //     hintTxt: "1",
-                // ),
-
+                    SizedBox(
+                      width: width * 0.05,
+                    ),
+                    
+                    Text("Add New User Info",
+                      style: GoogleFonts.singleDay(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                          fontSize: 25
+                      ),
+                    ),
+                  ],
+                ),
+                
                 SizedBox(
                   height: height * 0.05,
                 ),
@@ -119,16 +130,6 @@ class _AddNewUserInfoState extends State<AddNewUserInfo> {
                     //widget.contactInfo == null
                     nameController.text !=null && genderController.text !=null && giftOrMoneyController.text !=null
                     ){
-                      // await MyDBHelper.createContactInfo(ContactInfo(
-                      //   name: nameController.text,
-                      //   gender: genderController.text,
-                      //   giftOrMoney: giftOrMoneyController.text,
-                      //   slNo: slNoController.text,
-                      // )).then((value){
-                      //   ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Successfully added user Info")));
-                      //   Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => HomePageScreen()), (route) => false);
-                      // });
-
                       ContactModelInfo contactModelInfo = ContactModelInfo(
                           name: nameController.text,
                           gender: genderController.text,
@@ -150,10 +151,16 @@ class _AddNewUserInfoState extends State<AddNewUserInfo> {
                     width: 150,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
-                      color: Colors.pink[200],
+                      color: Color(0xff0f80b1),
                     ),
                     child: Center(
-                      child: Text("Add"),
+                      child: Text("Add",
+                        style: GoogleFonts.singleDay(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                            fontSize: 20
+                        ),
+                      ),
                     ),
                   ),
                 )
@@ -195,14 +202,14 @@ class WidgetTextFromField extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
       borderSide: BorderSide(
         width: 3,
-        color: Colors.pink,
+        color: Color(0xff0f80b1)
       ),
     ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
           borderSide: BorderSide(
             width: 3,
-            color: Colors.pink,
+            color: Color(0xff0f80b1)
           ),
         ),
 

@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:marriage_gift/model/contact_model_info.dart';
@@ -41,7 +42,13 @@ class _HomePageScreenState extends State<HomePageScreen> {
                 height: height * 0.05,
               ),
 
-              Text("All gift Records"),
+              Text("All gift Records",
+              style: GoogleFonts.singleDay(
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+                fontSize: 25
+              ),
+              ),
 
               Expanded(
                 // child: FutureBuilder(
@@ -183,12 +190,36 @@ class _HomePageScreenState extends State<HomePageScreen> {
                                     width: 35,
                                     decoration: BoxDecoration(
                                       shape: BoxShape.circle,
-                                      color: Colors.teal,
+                                      color: Color(0xff0f80b1),
                                     ),
-                                    child: Center(child: Text("${index}"))),
-                                title: Text(data[index].name),
-                                subtitle: Text(data[index].gender),
-                                trailing: Text(data[index].giftOrMoney),
+                                    child: Center(child: Text("${index}",
+                                      style: GoogleFonts.inter(
+                                          fontWeight: FontWeight.w600,
+                                          color: Colors.white,
+                                          fontSize: 18
+                                      ),
+                                    ))),
+                                title: Text(data[index].name,
+                                  style: GoogleFonts.inter(
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.black,
+                                      fontSize: 18
+                                  ),
+                                ),
+                                subtitle: Text(data[index].gender,
+                                  style: GoogleFonts.inter(
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.black45,
+                                      fontSize: 16
+                                  ),
+                                ),
+                                trailing: Text(data[index].giftOrMoney,
+                                  style: GoogleFonts.inter(
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.black,
+                                      fontSize: 16
+                                  ),
+                                ),
                               ),
                             );
                             }
@@ -223,6 +254,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
             title: Text("Edit User Data"),
             content: Column(
               mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
 
                 TextFormField(
@@ -281,7 +313,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                     Navigator.of(context).pop();
                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Updated Data Successfuly")));
                   },
-                  child: Text("Edit")
+                  child: Text("Update")
               ),
             ],
           );
